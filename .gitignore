@@ -1,0 +1,9 @@
+*.out
+*.gch
+*.swp
+x64
+.vs
+/Board.h.gch
+/GameLogic.h.gch
+*.o
+Program
