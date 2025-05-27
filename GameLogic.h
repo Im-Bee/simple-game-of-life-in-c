@@ -3,6 +3,6 @@
 
 #include "Board.h"
 
-void UpdateGame(Board* main, Board* dummy);
+int UpdateGame(Board* main, Board* dummy);
 
 #endif // !GAME_LOGIC_H

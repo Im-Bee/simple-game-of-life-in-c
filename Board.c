@@ -49,6 +49,7 @@ int LoadPlayerInput(Board* b)
         b->Content[ 3 ][ 2 ] = 1;
         b->Content[ 3 ][ 3 ] = 1;
         b->Content[ 4 ][ 2 ] = 1;
+        b->Content[ 4 ][ 3 ] = 1;
         b->Content[ 4 ][ 4 ] = 1;
         b->Content[ 3 ][ 5 ] = 1;
         b->Content[ 3 ][ 4 ] = 1;

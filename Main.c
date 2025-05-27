@@ -1,5 +1,6 @@
 #include "Board.h"
 #include "GameLogic.h"
+#include <stdlib.h>
 
 #ifdef _WIN32
 #include <windows.h>
@@ -36,7 +37,9 @@ int main()
     for (;;)
     {
         ShowBoard(&myBoard);
-        UpdateGame(&myBoard, &backBoard);
+        if (!UpdateGame(&myBoard, &backBoard)) {
+            break;
+        }
 
         #ifdef _WIN32
         Sleep(GAME_UPDATE_LATENCY);
@@ -47,4 +50,10 @@ int main()
 
     DisposeBoard(&myBoard);
     DisposeBoard(&backBoard);
+
+#ifdef _WIN32
+    system("cls");
+#else
+    system("clear");
+#endif // _WIN32
 }

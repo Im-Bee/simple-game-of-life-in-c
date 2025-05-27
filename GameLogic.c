@@ -3,8 +3,10 @@
 #include <stdint.h>
 #include <stdbool.h>
 
-void UpdateGame(Board* main, Board* dummy)
+int UpdateGame(Board* main, Board* dummy)
 {
+    bool change = false;
+
     for (int i = 0; i < main->Height; i++)
     {
         for (int j = 0; j < main->Width; j++)
@@ -56,6 +58,7 @@ void UpdateGame(Board* main, Board* dummy)
                 ( neighboursValues == 2 || neighboursValues == 3 ))
             {
                 dummy->Content[ i ][ j ] = 1;
+                change = true;
                 continue;
             }
 
@@ -63,6 +66,7 @@ void UpdateGame(Board* main, Board* dummy)
                 neighboursValues > 3)
             {
                 dummy->Content[ i ][ j ] = 0;
+                change = true;
                 continue;
             }
 
@@ -70,6 +74,7 @@ void UpdateGame(Board* main, Board* dummy)
                 neighboursValues == 3)
             {
                 dummy->Content[ i ][ j ] = 1;
+                change = true;
                 continue;
             }
 
@@ -81,4 +86,10 @@ void UpdateGame(Board* main, Board* dummy)
     unsigned char** tmpContentPtr = main->Content;
     main->Content = dummy->Content;
     dummy->Content = tmpContentPtr;
+    
+    if (!change) {
+        return 0;
+    }
+
+    return 1;
 }
